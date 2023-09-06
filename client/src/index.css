@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://www.shutterstock.com/shutterstock/photos/2009313029/display_1500/stock-photo-businesswoman-s-hand-filing-online-registration-form-on-laptop-2009313029.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 120vh;
+  overflow-y: scroll;
 }
 
 code {

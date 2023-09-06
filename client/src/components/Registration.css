@@ -1,0 +1,38 @@
+.container {
+    margin-top: 20px;
+    border-radius: 15px;
+}
+
+.login {
+    padding: 15% 10% 20% 10%;
+    margin-top: 40%;
+}
+
+.profile {
+    padding: 5%;
+    margin-top: 5%;
+}
+
+@media (max-width: 768px) {
+    .login {
+        padding: 10% 5% 15% 5%;
+        margin-top: 20%;
+    }
+
+    .profile {
+        padding: 3%;
+        margin-top: 3%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login {
+        padding: 8% 3% 12% 3%;
+        margin-top: 15%;
+    }
+
+    .profile {
+        padding: 2%;
+        margin-top: 2%;
+    }
+}
