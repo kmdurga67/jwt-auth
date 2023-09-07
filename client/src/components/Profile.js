@@ -14,12 +14,13 @@ import Female from "../images/female.jpg";
 const Profile = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("/api/profile", {
+        .get(`${apiBaseUrl}api/user/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -33,24 +34,34 @@ const Profile = () => {
   }, []);
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="sm">
       <Paper elevation={3} style={{ padding: "16px" }} className="profile">
         <Typography variant="h4">Profile</Typography>
         {loading ? (
           <Grid container justifyContent="center">
             <CircularProgress />
           </Grid>
-        ) : user && user.gender === "Male" ? (
+        ) : user && user.gender === "male" ? (
           <div>
-            <img src={Male} alt="not found" />
-            <Typography variant="h6">Welcome, {user.username}!</Typography>
-            <Typography variant="body1">Email: {user.email}</Typography>
+            <img src={Male} alt="not found" style={{marginLeft:"25%"}} />
+            <Typography variant="h4">Welcome, {user.username}!</Typography>
+            <Typography variant="body1"><b>Full Name:</b> {user.firstName} {user.lastName}</Typography>
+            <Typography variant="body1"><b>Gender:</b> {user.gender}</Typography>
+            <Typography variant="body1"><b>Email:</b> {user.email}</Typography>
+            <Typography variant="body1"><b>Designation:</b> {user.designation}</Typography>
+            <Typography variant="body1"><b>Hobbies:</b> {user.hobbies}</Typography>
+            <Typography variant="body1"><b>Address:</b> {user.address}</Typography>
           </div>
-        ) : user && user.gender === "Female" ? (
+        ) : user && user.gender === "female" ? (
           <div>
-            <img src={Female} alt="not found" />
-            <Typography variant="h6">Welcome, {user.username}!</Typography>
-            <Typography variant="body1">Email: {user.email}</Typography>
+            <img src={Female} alt="not found" style={{marginLeft:"25%"}}/>
+            <Typography variant="h3">Welcome, {user.username}!</Typography>
+            <Typography variant="body1"><b>Full Name:</b> {user.firstName} {user.lastName}</Typography>
+            <Typography variant="body1"><b>Gender:</b> {user.gender}</Typography>
+            <Typography variant="body1"><b>Email:</b> {user.email}</Typography>
+            <Typography variant="body1"><b>Designation:</b> {user.designation}</Typography>
+            <Typography variant="body1"><b>Hobbies:</b> {user.hobbies}</Typography>
+            <Typography variant="body1"><b>Address:</b> {user.address}</Typography>
           </div>
         ) : (
           <Typography variant="body1">

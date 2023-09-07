@@ -3,14 +3,18 @@ import axios from 'axios';
 import { Typography, TextField, Button, Paper, Container } from '@mui/material';
 import './Registration.css';
 import { toast } from 'react-toastify';
+import Profile from './Profile';
 
 const Login = () => {
+
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
 
   const [error, setError] = useState('');
+  const [isLogin, setLogin] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,14 +37,22 @@ const Login = () => {
         return;
       }
 
-      const response = await axios.post('/api/login', formData);
+      const response = await axios.post(`${apiBaseUrl}api/auth/login`, formData);
       const token = response.data.token;
       localStorage.setItem('token', token);
+      toast.success("Login Successfully");
+      setLogin(true);
     } catch (error) {
       setError('Login failed');
+      setLogin(false);
       toast.error("Login failed!")
     }
   };
+
+  // Render the Profile component if the form is successfully Login
+  if (isLogin) {
+    return <Profile formData={formData} />;
+  }
 
   return (
     <Container component="main" maxWidth="xs">

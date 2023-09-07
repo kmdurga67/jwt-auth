@@ -19,6 +19,7 @@ import * as Yup from "yup";
 const Register = () => {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
   const usernameRegx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -77,7 +78,7 @@ const Register = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        await axios.post("/api/register", values);
+        await axios.post(`${apiBaseUrl}api/auth/register`, values);
         toast.success("Registration Successful");
       } catch (error) {
         toast.error("Registration Failed");
