@@ -35,13 +35,13 @@ const Profile = () => {
 
   return (
     <Container component="main" maxWidth="sm">
-      <Paper elevation={3} style={{ padding: "16px" }} className="profile">
+      <Paper elevation={4} style={{ padding: "20px" }} className="profile">
         <Typography variant="h4">Profile</Typography>
         {loading ? (
           <Grid container justifyContent="center">
             <CircularProgress />
           </Grid>
-        ) : user && user.gender === "male" ? (
+        ) : user && (user.gender === "male" || user.gender === "Male") ? (
           <div>
             <img src={Male} alt="not found" style={{marginLeft:"25%"}} />
             <Typography variant="h4">Welcome, {user.username}!</Typography>
@@ -52,7 +52,7 @@ const Profile = () => {
             <Typography variant="body1"><b>Hobbies:</b> {user.hobbies}</Typography>
             <Typography variant="body1"><b>Address:</b> {user.address}</Typography>
           </div>
-        ) : user && user.gender === "female" ? (
+        ) : user && (user.gender === "female" || user.gender === "Female") ? (
           <div>
             <img src={Female} alt="not found" style={{marginLeft:"25%"}}/>
             <Typography variant="h3">Welcome, {user.username}!</Typography>

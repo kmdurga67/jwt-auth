@@ -80,6 +80,10 @@ const Register = () => {
       try {
         await axios.post(`${apiBaseUrl}api/auth/register`, values);
         toast.success("Registration Successful");
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       } catch (error) {
         toast.error("Registration Failed");
       }
