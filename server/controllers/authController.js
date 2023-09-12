@@ -25,6 +25,7 @@ exports.register = async (req, res) => {
 
     // Hash the password before saving it
     const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedconfirmPassword = await bcrypt.hash(confirmPassword, 10);
 
     const user = new User({
       username,
@@ -37,7 +38,7 @@ exports.register = async (req, res) => {
       hobbies,
       address,
       gender,
-      confirmPassword,
+      confirmPassword: hashedconfirmPassword,
     });
 
     await user.save();

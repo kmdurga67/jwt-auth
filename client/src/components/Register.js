@@ -82,8 +82,8 @@ const Register = () => {
         toast.success("Registration Successful");
 
         setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+          formik.initialValues = {};
+        }, 8000);
       } catch (error) {
         toast.error("Registration Failed");
       }
