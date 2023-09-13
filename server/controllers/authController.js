@@ -3,10 +3,9 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 require('dotenv').config();
 
-// Access the JWT secret key
 const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
-// Register a new user
+//To Register new user
 exports.register = async (req, res) => {
   try {
     const {
@@ -23,7 +22,7 @@ exports.register = async (req, res) => {
       confirmPassword,
     } = req.body;
 
-    // Hash the password before saving it
+    // Hashing of the password before saving it
     const hashedPassword = await bcrypt.hash(password, 10);
     const hashedconfirmPassword = await bcrypt.hash(confirmPassword, 10);
 
@@ -48,7 +47,7 @@ exports.register = async (req, res) => {
   }
 };
 
-// Login and generate a JWT token
+// Login and generating JWT token
 exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;

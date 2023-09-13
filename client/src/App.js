@@ -1,18 +1,19 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes,Link } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AppBar, CssBaseline, Toolbar, Typography, Link } from "@mui/material";
+import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
 import ErrorBoundary from './ErrorBoundaries/ErrorBoundary';
-import './ErrorBoundaries/styles.css';
 import './App.css';
 
 function App() {
   return (
-    <ErrorBoundary className="error-boundary">
+    <ErrorBoundary>
+      <BrowserRouter>
+      <CssBaseline />
       <AppBar position="static" color="default">
         <Toolbar className="app-toolbar">
           <Typography>
@@ -38,14 +39,11 @@ function App() {
           </div>
         </Toolbar>
       </AppBar>
-      <CssBaseline />
       <ToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
       />
-
-      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>

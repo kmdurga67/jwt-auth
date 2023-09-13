@@ -75,7 +75,7 @@ const Register = () => {
       confirmPassword: "",
       gender: "",
     },
-    validationSchema: validationSchema,
+    validationSchema: validationSchemas,
     onSubmit: async (values,formikBag) => {
       try {
         await axios.post(`${apiBaseUrl}/api/auth/register`, values);
