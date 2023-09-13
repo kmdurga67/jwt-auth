@@ -8,8 +8,8 @@ import {
   Container,
 } from "@mui/material";
 import "./Registration.css";
-import Male from "../images/male.jpg";
-import Female from "../images/female.jpg";
+import Male from "../assets/images/male.jpg";
+import Female from "../assets/images/female.jpg";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -20,7 +20,7 @@ const Profile = () => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get(`${apiBaseUrl}api/user/profile`, {
+        .get(`${apiBaseUrl}/api/user/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {

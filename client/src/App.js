@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
+import { AppBar, CssBaseline, Toolbar, Typography, Link } from "@mui/material";
 import ErrorBoundary from './ErrorBoundaries/ErrorBoundary';
 import './ErrorBoundaries/styles.css';
 import './App.css';
@@ -16,24 +16,24 @@ function App() {
       <AppBar position="static" color="default">
         <Toolbar className="app-toolbar">
           <Typography>
-            <a href="/">
+            <Link to="/">
               <img
                 src="https://cdn3.vectorstock.com/i/1000x1000/10/32/login-form-authentication-icon-on-white-vector-23391032.jpg"
                 height={"80px"}
                 width={"80px"}
                 alt="no images found"
               />
-            </a>
+            </Link>
           </Typography>
           <Typography variant="h2">
             JWT AUTHENTICATION FORM
           </Typography>
           <div className="nav-links">
             <Typography variant="h5">
-              <a href="/login">Login</a>
+              <Link to="/login">Login</Link>
             </Typography>
             <Typography variant="h5">
-              <a href="/">Sign Up</a>
+              <Link to="/">Sign Up</Link>
             </Typography>
           </div>
         </Toolbar>

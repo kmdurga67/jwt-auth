@@ -76,14 +76,14 @@ const Register = () => {
       gender: "",
     },
     validationSchema: validationSchema,
-    onSubmit: async (values) => {
+    onSubmit: async (values,formikBag) => {
       try {
-        await axios.post(`${apiBaseUrl}api/auth/register`, values);
+        await axios.post(`${apiBaseUrl}/api/auth/register`, values);
         toast.success("Registration Successful");
 
         setTimeout(() => {
-          formik.initialValues = {};
-        }, 8000);
+          formikBag.resetForm();
+        }, 3000);
       } catch (error) {
         toast.error("Registration Failed");
       }
