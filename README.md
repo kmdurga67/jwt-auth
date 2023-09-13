@@ -1,17 +1,45 @@
-# jwt-auth
+# JWT Authentication Project
 
-Clone down this repository. You will need node and npm installed globally on your machine.
+This is a JWT (JSON Web Token) authentication project that includes both frontend and backend components.
 
-Follow directory pattern: cd jwt-auth
+## Prerequisites
 
-For frontend: cd client
+Before you get started, ensure you have the following tools installed on your machine:
 
-For backend: cd server
+- Node.js
+- npm
 
-For Installation of dependencies:
+## Getting Started
 
-npm install 
+1. Clone this repository to your local machine:
+https://github.com/kmdurga67/jwt-auth.git
 
-To Start client: npm start
+2. Change into the project directory:
+cd jwt-auth
 
-To start server: node server.js
+### For Frontend
+
+3. Change into the client directory:
+   cd client
+
+4. Install frontend dependencies:
+npm i --save
+
+5. Start the frontend:
+npm start
+
+The frontend directory will be accessible at [http://localhost:3000](http://localhost:3000).
+
+### Backend
+
+6. Change into the server directory:
+cd server
+
+7. Similarly, install backend dependencies:
+   npm i --save
+
+8. Start the server:
+node server.js
+
+
+
