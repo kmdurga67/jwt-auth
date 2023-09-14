@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './styles.css'
+
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -12,21 +13,19 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    this.setState({
+    this.setState((prevState) => ({
       hasError: true,
       error,
       errorInfo,
-    });
-
-    this.setState((prevState) => ({
       errorList: [...prevState.errorList, error],
     }));
+    console.log(error, this.state.errorList);
   }
 
   render() {
-    if (this.state.hasError) {
+    if (this.state.hasError && this.state.errorList.length > 0) {
       const errorItems = this.state.errorList.map((error, index) => (
-        <div key={index} className="error-boundary">
+        <div key={index} className="error-item">
           <h2>Error:</h2>
           <p>{error.toString()}</p>
         </div>
